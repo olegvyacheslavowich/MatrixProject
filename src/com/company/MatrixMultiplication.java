@@ -4,6 +4,7 @@ package com.company;
  * Created by Олег on 23.01.2017.
  */
 public class MatrixMultiplication {
+
     private int[][] matrixA;
     private int[][] matrixB;
     private int[][] matrixC;
@@ -14,12 +15,18 @@ public class MatrixMultiplication {
         matrixB = b.getMatrix();
 
         // а можно ли перемножить матрицы??
-        if (matrixA[0].length == matrixB.length)
-            matrixC = new int[matrixA.length][matrixB[0].length]; // можно
-        else {
-            System.out.println("Указанные матрицы нельзя перемножить"); // неможно
-            System.exit(0);
-        }
+        if (areMultiply(matrixA[0].length,matrixB.length))
+            matrixC = new int[matrixA.length][matrixB[0].length];
+
+    }
+
+    //проверка на возможность перемножения матриц
+    private boolean areMultiply(int columnsA,int rowsB){
+        boolean answer;
+        if (columnsA == rowsB)
+            answer = true;
+        else answer = false;
+        return answer;
     }
 
     //метод вывода результата умножения
@@ -36,7 +43,7 @@ public class MatrixMultiplication {
     public int[][] multiplication() {
         for (int i = 0; i < matrixA.length; i++) {
             for (int j = 0; j < matrixB[0].length; j++) {
-                for (int k = 0; k < matrixB.length; /* k < matrixA[i].length; */k++) {
+                for (int k = 0; k < matrixB.length;  /*k < matrixA[i].length;*/ k++) {
                     matrixC[i][j] += matrixA[i][k] * matrixB[k][j];
                 }
             }
@@ -44,3 +51,4 @@ public class MatrixMultiplication {
         return matrixC;
     }
 }
+

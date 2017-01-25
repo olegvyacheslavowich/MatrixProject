@@ -8,12 +8,22 @@ import java.util.Random;
 public class Matrix {
 
     private int[][] matrix;
+    private int i;
+    private int j;
 
     //конструктор, в котороем задается количество строк и столбцов матрицы
     // и тут же заполнение матрицы
     public Matrix(int i, int j) {
         matrix = new int[i][j];
         fill();
+    }
+
+    public int getI() {
+        return i;
+    }
+
+    public int getJ() {
+        return j;
     }
 
     //геттер
