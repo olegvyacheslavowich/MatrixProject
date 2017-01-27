@@ -1,53 +1,31 @@
 package com.company;
 
-import java.util.Random;
+import javax.swing.*;
 
 /**
  * Created by Олег on 23.01.2017.
+ * Created matrix class
  */
-public class Matrix {
+public class Matrix extends JFrame {
 
     private int[][] matrix;
-    private int i;
-    private int j;
 
-    //конструктор, в котороем задается количество строк и столбцов матрицы
-    // и тут же заполнение матрицы
+    /**
+     * Constructor is initialize matrix by rows and columns
+     *
+     * @param i
+     * @param j
+     */
     public Matrix(int i, int j) {
         matrix = new int[i][j];
-        fill();
     }
 
-    public int getI() {
-        return i;
+    public Matrix(int[][] matrix){
+        this.matrix = matrix;
     }
 
-    public int getJ() {
-        return j;
-    }
 
-    //геттер
     public int[][] getMatrix() {
         return matrix;
-    }
-
-    // метод заполнения матрицы рэндомными числами
-    private void fill() {
-        Random random = new Random();
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                matrix[i][j] = random.nextInt(10);
-            }
-        }
-    }
-
-    //показать сформировавшуюся матрицу
-    public void showMatrix() {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                System.out.print(matrix[i][j] + " ");
-            }
-            System.out.println();
-        }
     }
 }
